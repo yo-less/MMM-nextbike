@@ -1,0 +1,27 @@
+{
+  "name": "MMM-nextbike",
+  "version": "1.0.0",
+  "description": "MagicMirror² module - station monitor for the nextbike bike-sharing network",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yo-less/MMM-nextbike.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "nextbike",
+	"magic mirror",
+    "smart mirror",
+    "bike sharing",
+    "module"    
+  ],
+  "author": "yo-less",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yo-less/MMM-nextbike/issues"
+  },
+  "homepage": "https://github.com/yo-less/MMM-nextbike#readme",
+  "dependencies": {
+    "request": "^2.15.8",
+	"xml2js": "^0.4.17"
+  }
+}

@@ -1,0 +1,17 @@
+.MMM-nextbike .table {
+    border-spacing: 0px 0px;
+    border-collapse: separate;
+    text-align: left;
+	width: 220px;
+	}
+
+.MMM-nextbike .spacerRow {
+	padding-bottom: 5px;
+	}
+
+.MMM-nextbike .amountRow {
+	
+	font-weight: normal;
+	color: white;
+	}
+
