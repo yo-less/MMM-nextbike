@@ -84,8 +84,13 @@ Module.register("MMM-nextbike", {
 		if (this.config.showBikes)	{	// Make sure user wants to see the bikes
 		
 			if (!this.nextbikeData.bike_numbers){
-				this.hide();
+				this.hide(10000);						
 			} else {
+				
+				if (this.hidden) {
+					this.show(5000);
+				} 
+				
 				var bikeArray = this.nextbikeData.bike_numbers.split(",");
 				if (!this.config.nob) {this.config.nob = 100;}
 				for (var i=0; (i<bikeArray.length) && (i<this.config.nob);i++){
@@ -122,7 +127,11 @@ Module.register("MMM-nextbike", {
 		var amount = document.createElement("td");
 		amount.className = "amountRow";
 		amount.setAttribute("colSpan", "2");
-		amount.innerHTML = this.translate("BIKES-AVAILABLE") + " " + this.nextbikeData.bikes;
+		if (!this.nextbikeData.bike_numbers){
+			amount.innerHTML = this.translate("NO-BIKES-AVAILABLE");
+		} else {
+			amount.innerHTML = this.translate("BIKES-AVAILABLE") + " " + this.nextbikeData.bikes;
+		}
 		amountRow.appendChild(amount); 
       	
 		return amountRow;

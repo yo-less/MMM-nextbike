@@ -1,6 +1,6 @@
 {
   "name": "MMM-nextbike",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MagicMirror² module - station monitor for the nextbike bike-sharing network",
   "repository": {
     "type": "git",
