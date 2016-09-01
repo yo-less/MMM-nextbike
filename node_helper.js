@@ -14,7 +14,7 @@ const NodeHelper = require("node_helper");
 module.exports = NodeHelper.create({
 
     start: function() {
-        console.log("Starting modules: " + this.name);
+        console.log("Starting node helper for: " + this.name);
     },
 
 	

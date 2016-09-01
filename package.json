@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/yo-less/MMM-nextbike#readme",
   "dependencies": {
-    "request": "^2.15.8",
+    "request": "^2.74.0",
 	"xml2js": "^0.4.17"
   }
 }
