@@ -13,7 +13,8 @@ Module.register("MMM-nextbike", {
     stationName: "nextbike",
     showBikes: true,
     nob: "",
-    reload: 1 * 60 * 1000 // every minute
+    reload: 1 * 60 * 1000, // every minute
+    showHeader: true,
   },
 
   getTranslations: function () {
@@ -49,13 +50,16 @@ Module.register("MMM-nextbike", {
     // Auto-create MagicMirror header
 
     var wrapper = document.createElement("div");
-    var header = document.createElement("header");
-    if (this.config.stationName !== "nextbike") {
-      header.innerHTML = this.config.stationName;
-    } else {
-      header.innerHTML = this.config.stationName;
+
+    if (this.config.showHeader) {
+      var header = document.createElement("header");
+      if (this.config.stationName !== "nextbike") {
+        header.innerHTML = this.config.stationName;
+      } else {
+        header.innerHTML = this.config.stationName;
+      }
+      wrapper.appendChild(header);
     }
-    wrapper.appendChild(header);
 
     // Loading data notification
 
@@ -124,8 +128,7 @@ Module.register("MMM-nextbike", {
     if (!this.nextbikeData.bike_numbers) {
       amount.innerHTML = this.translate("NO-BIKES-AVAILABLE");
     } else {
-      amount.innerHTML =
-        this.translate("BIKES-AVAILABLE") + " " + this.nextbikeData.bikes;
+      amount.innerHTML = this.translate("BIKES-AVAILABLE") + " " + this.nextbikeData.bikes;
     }
     amountRow.appendChild(amount);
 
