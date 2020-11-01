@@ -20,6 +20,7 @@ Module.register("MMM-nextbike", {
     getTranslations: function () {
         return {
             en: "translations/en.json",
+            es: "translations/es.json",
             de: "translations/de.json"
         };
     },
