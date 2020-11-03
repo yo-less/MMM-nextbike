@@ -10,8 +10,6 @@ Module.register("MMM-nextbike", {
     apiBase: "http://api.nextbike.net/maps/nextbike-official.xml",
     cityId: "1",
     stations: [{ id: "16337", name: "nextbike" }],
-    showBikes: true,
-    nob: "",
     reload: 1 * 60 * 1000, // every minute
     showHeader: true
   },
@@ -48,13 +46,11 @@ Module.register("MMM-nextbike", {
     // Auto-create MagicMirror header
     var wrapper = document.createElement("div");
 
-    if (!!this.config.showHeader) {
+    if (!!this.nextbikeData && !!this.config.showHeader) {
       var header = document.createElement("header");
-      if (this.config.stationName !== "nextbike") {
-        header.innerHTML = this.config.stationName;
-      } else {
-        header.innerHTML = this.config.stationName;
-      }
+      var headerLabel =
+        (this.nextbikeData && this.nextbikeData.city.$.maps_icon) || "Nextbike";
+      header.innerHTML = `<i class="fas fa-bicycle"></i> ${headerLabel}`;
       wrapper.appendChild(header);
     }
 
@@ -68,16 +64,15 @@ Module.register("MMM-nextbike", {
       // Create stations list
       var stationsList = document.createElement("ul");
       stationsList.className = "small stationsList";
-      
-      this.nextbikeData.forEach(station => {
-        Log.info(station);
+
+      this.nextbikeData.stations.forEach((station) => {
         var stationConfig = this.getStationConfig(station);
         var stationElement = document.createElement("li");
         stationElement.className = "stationElement";
 
-        var stationName = document.createElement("span")
+        var stationName = document.createElement("span");
         stationName.className = "stationLabel dimmed";
-        stationName.innerHTML = `<span class="stationName">${stationConfig.name}</span> <i class="fa fa-bicycle"></i> `;
+        stationName.innerHTML = `<span class="stationName">${stationConfig.name}</span> `;
         stationElement.appendChild(stationName);
 
         var stationInfo = document.createElement("span");
@@ -93,11 +88,10 @@ Module.register("MMM-nextbike", {
 
       wrapper.appendChild(stationsList);
     }
-
     return wrapper;
   },
 
   getStationConfig: function (station) {
-    return this.config.stations.find(config => config.id == station.$.uid);
-  },
+    return this.config.stations.find((config) => config.id == station.$.uid);
+  }
 });

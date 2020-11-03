@@ -38,10 +38,10 @@ module.exports = NodeHelper.create({
     var nextbikeData = "";
     parseString(input, function (err, result) {
       nextbikeData = JSON.parse(JSON.stringify(result));
-	});
-	var stations = nextbikeData.markers.country[0].city[0].place;
-	var stationIds = this.config.stations.map(station => station.id);
-	return stations.filter(station => stationIds.includes(station.$.uid));
+    });
+    var city = nextbikeData.markers.country[0].city[0];
+    var stations = city.place.filter(station => this.getStationIds().includes(station.$.uid));
+    return { city, stations };
   },
 
   getData: function (options, cityId) {
@@ -52,5 +52,9 @@ module.exports = NodeHelper.create({
         console.log("Error getting nextbike data " + response.statusCode);
       }
     });
+  },
+
+  getStationIds: function() {
+    return this.config.stations.map(station => station.id);
   }
 });

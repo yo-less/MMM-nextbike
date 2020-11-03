@@ -1,5 +1,10 @@
+.MMM-nextbike header {
+	margin-bottom: 4px;
+}
+
 .MMM-nextbike .stationsList {
 	list-style: none;
+	margin: 6px 0;
 }
 
 .MMM-nextbike .stationName {
