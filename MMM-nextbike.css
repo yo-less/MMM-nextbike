@@ -1,17 +1,20 @@
-.MMM-nextbike .table {
-    border-spacing: 0px 0px;
-    border-collapse: separate;
-    text-align: left;
-	width: 220px;
-	}
+.MMM-nextbike .stationsList {
+	list-style: none;
+}
 
-.MMM-nextbike .spacerRow {
-	padding-bottom: 5px;
-	}
+.MMM-nextbike .stationName {
+	text-transform: uppercase;
+}
 
-.MMM-nextbike .amountRow {
-	
-	font-weight: normal;
+.MMM-nextbike .stationInfo {
+	padding-left: 4px;
+	color: #c1c1c1;
+}
+
+.MMM-nextbike .stationInfo .available-bikes {
+	font-size: 1.75rem;
 	color: white;
-	}
-
+}
+.MMM-nextbike .stationInfo .total-bikes {
+	font-size: 0.85rem;
+}
