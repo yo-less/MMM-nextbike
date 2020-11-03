@@ -39,9 +39,10 @@ module.exports = NodeHelper.create({
     parseString(input, function (err, result) {
       nextbikeData = JSON.parse(JSON.stringify(result));
     });
-    var city = nextbikeData.markers.country[0].city[0];
+    var country = nextbikeData.markers.country[0];
+    var city = country.city[0];
     var stations = city.place.filter(station => this.getStationIds().includes(station.$.uid));
-    return { city, stations };
+    return { name: country.$.name, city, stations };
   },
 
   getData: function (options, cityId) {

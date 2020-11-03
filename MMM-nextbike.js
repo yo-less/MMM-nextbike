@@ -49,7 +49,7 @@ Module.register("MMM-nextbike", {
     if (!!this.nextbikeData && !!this.config.showHeader) {
       var header = document.createElement("header");
       var headerLabel =
-        (this.nextbikeData && this.nextbikeData.city.$.maps_icon) || "Nextbike";
+        (this.nextbikeData && this.nextbikeData.name) || "Nextbike";
       header.innerHTML = `<i class="fas fa-bicycle"></i> ${headerLabel}`;
       wrapper.appendChild(header);
     }
