@@ -5,7 +5,7 @@
  * MIT Licensed.
  */
 
-var parseString = require("xml2js").parseString;
+const parseString = require("xml2js").parseString;
 const request = require("request");
 const NodeHelper = require("node_helper");
 
