@@ -42,17 +42,14 @@ Module.register("MMM-nextbike", {
     }
   },
 
+  getHeader: function() {
+    var headerLabel = (this.nextbikeData && this.nextbikeData.name);
+    return headerLabel && `<i class="fas fa-bicycle"></i> ${headerLabel}`;
+  },
+
   getDom: function () {
     // Auto-create MagicMirror header
     var wrapper = document.createElement("div");
-
-    if (!!this.nextbikeData && !!this.config.showHeader) {
-      var header = document.createElement("header");
-      var headerLabel =
-        (this.nextbikeData && this.nextbikeData.name) || "Nextbike";
-      header.innerHTML = `<i class="fas fa-bicycle"></i> ${headerLabel}`;
-      wrapper.appendChild(header);
-    }
 
     // Loading data notification
     if (!this.nextbikeData) {
